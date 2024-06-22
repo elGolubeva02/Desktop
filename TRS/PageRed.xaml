@@ -1,0 +1,38 @@
+﻿<Page x:Class="TRS.PageRed"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="clr-namespace:TRS"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="PageRed">
+
+    <Page.Resources>
+        <!-- Добавляем ресурс для конвертера EmptyTextToVisibilityConverter -->
+        <local:EmptyTextToVisibilityConverter x:Key="EmptyTextToVisibilityConverter"/>
+    </Page.Resources>
+
+    <Grid Background="#1E90FF">
+        <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="800" CornerRadius="20">
+            <StackPanel Orientation="Vertical" Grid.Row="0">
+                <Grid Margin="5">
+                    <TextBox x:Name="TitleTask" Text="{Binding Title_Task}" />
+                    <Label Content="Название задачи" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
+                           HorizontalAlignment="Left" VerticalAlignment="Center" 
+                           Visibility="{Binding Text, ElementName=TitleTask, Converter={StaticResource EmptyTextToVisibilityConverter}}" />
+                </Grid>
+
+                <ComboBox x:Name="TypeTask" Margin="5" ItemsSource="{Binding Path=Base.dataBase.Type}" DisplayMemberPath="Title_Type" SelectedValuePath="ID_Type" SelectedValue="{Binding ID_Type}"/>
+
+                <Grid Margin="5">
+                    <TextBox x:Name="InfoTask" Text="{Binding Info}" />
+                    <Label Content="Информация" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
+                           HorizontalAlignment="Left" VerticalAlignment="Center" 
+                           Visibility="{Binding Text, ElementName=InfoTask, Converter={StaticResource EmptyTextToVisibilityConverter}}" />
+                </Grid>
+
+                <Button Content="Сохранить изменения" Click="SaveTask_Click" Margin="5"/>
+                <Button Content="Удалить" Click="Button_Click" Margin="5"/>
+                <Button Content="Назад" Click="Button_Click_1" Margin="5"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

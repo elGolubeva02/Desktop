@@ -1,0 +1,22 @@
+﻿<Application x:Class="TRS.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TRS"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Основная тема Material Design -->
+                <ResourceDictionary Source="/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <!--<ResourceDictionary Source="/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />-->
+                <!-- Цветовые схемы Material Design -->
+                <ResourceDictionary Source="/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <!--<ResourceDictionary Source="/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />-->
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Помещаем конвертер внутрь ResourceDictionary -->
+            <local:EmptyTextToVisibilityConverter x:Key="EmptyTextToVisibilityConverter"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
